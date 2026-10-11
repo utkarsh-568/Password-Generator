@@ -1,6 +1,6 @@
 name = ""
 while name == "":
-    name = input("Enter your name: ")
+    name = input("Enter your secret word")
     if name == "":
         print("You have to type something, try again!")
 
@@ -28,7 +28,7 @@ for letter in name:
 
     a = count + first
     b = count + second
-    result = a + b                 # secret rule: the "x" secretly means +
+    result = a + b            
     digit = result % 10
 
     password = password + str(digit) + letter
