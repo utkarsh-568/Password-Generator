@@ -1,20 +1,19 @@
-
 name = ""
 while name == "":
-    name = input("Enter your Secret Word: ").strip()
+    name = input("Enter your Secret Word: ")
     if name == "":
         print("You have to type something, try again!")
 
 first = ""
-while not first.isdigit():
+while first.isdigit() == False:
     first = input("Enter your first secret number: ")
-    if not first.isdigit():
+    if first.isdigit() == False:
         print("Numbers only, try again!")
 
 second = ""
-while not second.isdigit():
+while second.isdigit() == False:
     second = input("Enter your second secret number: ")
-    if not second.isdigit():
+    if second.isdigit() == False:
         print("Numbers only, try again!")
 
 first = int(first)
@@ -24,18 +23,21 @@ password = ""
 count = 0
 
 for letter in name:
-    digit = (count + first + count + second) % 10
-    password += str(digit) + letter
+    if len(password) >= 8:
+        break
+
+    a = count + first
+    b = count + second
+    result = a + b               
+    digit = result % 10
+
+    password = password + str(digit) + letter
 
     if count % 2 == 0:
-        password += "#"
+        password = password + "#"
     else:
-        password += "@"
+        password = password + "@"
 
-    count += 1
-
-    if len(password) >= 8:
-        password = password[:8]
-        break
+    count = count + 1
 
 print("Your password is:", password)
